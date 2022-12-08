@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreFileRequest;
-use App\Services\FileService;
-use App\Http\Resources\FileResource;
 use App\Http\Resources\FileCollection;
 use App\Http\Resources\FileDetailResource;
+use App\Http\Resources\FileResource;
+use App\Models\File;
+use App\Services\FileService;
 use App\Utils\ResponseUtils;
 use Symfony\Component\HttpFoundation\Response;
-use App\Models\File;
 
 class FileController extends Controller
 {
@@ -26,7 +25,7 @@ class FileController extends Controller
     Get a file by id
     */
     public function get(File $file)
-    {   
+    {
         $file = $this->fileService->get($file);
 
         return ResponseUtils::sendResponseWithSuccess('File found', new FileDetailResource($file), Response::HTTP_OK);
@@ -57,9 +56,10 @@ class FileController extends Controller
     }
 
     /*
-    Get File from a temp url 
+    Get File from a temp url
      */
-    public function getFile($file) {
+    public function getFile($file)
+    {
         $pathToFile = $this->fileService->getFile($file);
 
         return response()->file($pathToFile);

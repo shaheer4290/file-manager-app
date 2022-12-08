@@ -10,6 +10,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\HourlyDataCleanUp::class,
     ];
+
     /**
      * Define the application's command schedule.
      *

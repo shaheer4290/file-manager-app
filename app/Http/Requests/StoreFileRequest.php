@@ -2,11 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Models\File as CustomFile;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\File as CustomFile;
 use Illuminate\Validation\Rules\File;
-
 
 class StoreFileRequest extends FormRequest
 {
@@ -36,9 +35,9 @@ class StoreFileRequest extends FormRequest
             ],
             'file' => [
                 'required',
-                File::types(['jpg', 'png', 'pdf','docx'])
+                File::types(['jpg', 'png', 'pdf', 'docx'])
                     ->max(5 * 1024),
             ],
-        ]; 
+        ];
     }
 }

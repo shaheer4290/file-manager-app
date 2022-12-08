@@ -2,10 +2,10 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Throwable;
 use App\Utils\ResponseUtils;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -57,11 +57,10 @@ class Handler extends ExceptionHandler
                 return ResponseUtils::sendResponseWithError($exception->getMessage(), Response::HTTP_NOT_FOUND);
             } else {
                 if (method_exists($exception, 'getStatusCode')) {
-                    $message = empty($exception->getMessage())?"This route does not exist":$exception->getMessage();
+                    $message = empty($exception->getMessage()) ? 'This route does not exist' : $exception->getMessage();
+
                     return ResponseUtils::sendResponseWithError($message, $exception->getStatusCode());
                 }
-
-                
             }
         }
 

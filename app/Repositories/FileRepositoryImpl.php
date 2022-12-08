@@ -3,21 +3,22 @@
 namespace App\Repositories;
 
 use App\Models\File;
-use Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
 class FileRepositoryImpl implements FileRepository
 {
-    public function create($data) {
+    public function create($data)
+    {
         return File::create($data);
     }
 
-    public function getById($id) {
+    public function getById($id)
+    {
         return File::find($id);
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         return File::paginate(10);
     }
 
@@ -34,7 +35,8 @@ class FileRepositoryImpl implements FileRepository
         return Redis::get($key);
     }
 
-    public function deleteOlderRecords() {
+    public function deleteOlderRecords()
+    {
         $files = File::whereDate('created_at', '<=', now()->subDays(30))->delete();
 
         return $files;

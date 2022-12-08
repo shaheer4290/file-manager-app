@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Repositories\FileRepository;
+use Illuminate\Console\Command;
 
 class HourlyDataCleanUp extends Command
 {
@@ -26,10 +26,10 @@ class HourlyDataCleanUp extends Command
      *
      * @return int
      */
-    
     private FileRepository $fileRepository;
 
-    public function __construct(FileRepository $fileRepository) {
+    public function __construct(FileRepository $fileRepository)
+    {
         parent::__construct();
 
         $this->fileRepository = $fileRepository;
@@ -38,8 +38,8 @@ class HourlyDataCleanUp extends Command
     public function handle()
     {
         $deletedFiles = $this->fileRepository->deleteOlderRecords();
-        
-        echo "Number of records cleaned up : ". $deletedFiles. "\n";
+
+        echo 'Number of records cleaned up : '.$deletedFiles."\n";
 
         return Command::SUCCESS;
     }

@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Services\FileService;
 use App\Services\FileServiceImpl;
+use Illuminate\Support\ServiceProvider;
 
 class RegistryServiceProvider extends ServiceProvider
 {

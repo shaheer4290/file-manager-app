@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 
 class File extends Model
@@ -23,10 +22,11 @@ class File extends Model
         'name',
         'description',
         'type',
-        'file'
+        'file',
     ];
 
-    public function getTempFileUrl() {
+    public function getTempFileUrl()
+    {
         // $url = url("/files/".$this->tempFileHash."/show");
         $url = route('file.show', ['file' => $this->tempFileHash]);
 

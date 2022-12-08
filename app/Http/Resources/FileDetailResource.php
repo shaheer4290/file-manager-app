@@ -19,7 +19,7 @@ class FileDetailResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'type' => $this->type,
-            'url' => $this->getTempFileUrl()
+            'url' => $this->getTempFileUrl(),
         ];
     }
 }

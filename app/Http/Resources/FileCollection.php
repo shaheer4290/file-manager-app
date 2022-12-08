@@ -7,6 +7,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class FileCollection extends ResourceCollection
 {
     public $collects = FileResource::class;
+
     /**
      * Transform the resource collection into an array.
      *
