@@ -31,13 +31,16 @@ class HourlyDataCleanUp extends Command
 
     public function __construct(FileRepository $fileRepository) {
         parent::__construct();
-        
+
         $this->fileRepository = $fileRepository;
     }
 
     public function handle()
     {
-        $this->fileRepository->deleteOlderRecords();
+        $deletedFiles = $this->fileRepository->deleteOlderRecords();
+        
+        echo "Number of records cleaned up : ". $deletedFiles. "\n";
+
         return Command::SUCCESS;
     }
 }

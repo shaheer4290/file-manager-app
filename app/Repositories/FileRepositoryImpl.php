@@ -36,5 +36,7 @@ class FileRepositoryImpl implements FileRepository
 
     public function deleteOlderRecords() {
         $files = File::whereDate('created_at', '<=', now()->subDays(30))->delete();
+
+        return $files;
     }
 }
