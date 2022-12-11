@@ -1,6 +1,6 @@
 # File Manager App
 
-Restful Apis to create a quiz bulder application
+Restful Apis tfor file manager application
 
 ## Built using
 - PHP Laravel 9
